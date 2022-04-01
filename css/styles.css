@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+:root {
+    --color-body: linear-gradient(to bottom, #8e6c6c, #665348, #3f3b30, #1f221c, #010302);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    margin       : 0;
+    padding      : 0;
+    background   : var(--color-body);
+    /* overflow-x: hidden; */
+}
+
+/* NavBar */
+.navBar {
+    position       : fixed;
+    top            : 0;
+    width          : 100%;
+    display        : flex;
+    justify-content: space-around;
+    align-items    : center;
+    padding        : 40px;
+    z-index        : 100;
+}
+
+.navBar a.active {
+    color  : white;
+    opacity: 1;
+}
+
+/* .navBar ul li a:hover{
+    opacity: 0.5;
+} */
+
+.navBar::before {
+    content         : '';
+    position        : absolute;
+    z-index         : -1;
+    background-color: rgb(69, 64, 64);
+    height          : 55px;
+    width           : 500px;
+    border-radius   : 30px;
+}
+
+.navBar ul {
+    list-style-type: none;
+    display        : flex;
+    margin         : 0;
+    padding        : 0;
+    font-size      : large;
+    z-index        : 100;
+}
+
+.navBar li {
+    border-left : 2px solid transparent;
+    border-right: 2px solid transparent;
+    transition  : border-left 0.5s, border-right 0.5s;
+}
+
+.navBar a {
+    text-decoration: none;
+    display        : block;
+    color          : white;
+    margin         : 0 30px 0 30px;
+    opacity        : 0.4;
+    transition     : opacity 1s;
+}
+
+.navBar a:hover {
+    opacity: 1;
+}
+
+.navBar li:hover {
+    border-left : 2px solid white;
+    border-right: 2px solid white;
+}
+
+/* NavBar */
+
+
+h1,
+h2,
+p {
+    color      : white;
+    line-height: 2rem;
+}
+
+h1 {
+    font-size: xx-large;
+}
+
+h2 {
+    font-size: medium;
+}
+
+main {
+    height: 100rem;
+}
+
+/* Home */
+.homeWrapper {
+    margin-top: 8rem;
+    display   : inline-block;
+    width     : 100%;
+}
+
+.homeWrapper img {
+    border-radius: 150px;
+    width        : 25%;
+    height       : 25%;
+}
+
+.imgWrapper {
+    margin-top     : 3rem;
+    display        : flex;
+    justify-content: center;
+}
+
+.titleWrapper {
+    text-align: center;
+    display   : inline-block;
+    width     : 100%;
+    margin-top: 4rem;
+}
+
+/* Home */
+
+/* About */
+
+.aboutWrapper {
+    width     : 100%;
+    margin-top: 10rem;
+    display   : inline-block;
+    text-align: center;
+}
+
+.aboutWrapper a {
+    text-decoration: none;
+    color          : coral;
+}
+
+.aboutWrapper .aboutMeText {
+    width  : 100%;
+    padding: 4rem 25rem 4rem 25rem;
+}
