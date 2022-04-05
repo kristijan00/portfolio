@@ -27,6 +27,12 @@ main {
     margin: 0;
 }
 
+.aboutWrapper.active,
+.workWrapper.active,
+.contactWrapper.active {
+    opacity: 1;
+}
+
 /* NavBar */
 .navBar {
     position       : fixed;
@@ -37,11 +43,7 @@ main {
     align-items    : center;
     padding        : 40px;
     z-index        : 100;
-}
-
-.navBar a.active {
-    color  : white;
-    opacity: 1;
+    transition     : opacity 1s;
 }
 
 .navBar li.active {
@@ -49,6 +51,10 @@ main {
     border-right: 2.5px solid white;
 }
 
+.navBar li.active a {
+    color  : white;
+    opacity: 1;
+}
 
 .navBar::before {
     content         : '';
@@ -74,8 +80,8 @@ main {
     border-right : 2.5px solid transparent;
     transition   : border-left 0.8s, border-right 0.8s;
     border-radius: 4px;
-    margin-right: 1px;
-    margin-left: 1px;
+    margin-right : 1px;
+    margin-left  : 1px;
 }
 
 .navBar a {
@@ -121,10 +127,11 @@ main {
 
 /* Home */
 .homeWrapper {
-    margin-top: 8rem;
-    display   : inline-block;
-    width     : 100%;
-    height: auto;
+    margin-top    : 8rem;
+    display       : flex;
+    flex-direction: column;
+    width         : 100%;
+    height        : auto;
 }
 
 .homeWrapper img {
@@ -140,10 +147,16 @@ main {
 }
 
 .titleWrapper {
-    text-align: center;
-    display   : inline-block;
-    width     : 100%;
+    text-align : center;
+    display    : inline-block;
+    width      : 100%;
     padding-top: 4rem;
+}
+
+.titleWrapper h2 {
+    color     : rgb(132, 132, 164);
+    font-size : large;
+    font-style: oblique
 }
 
 /* Home */
@@ -151,11 +164,14 @@ main {
 /* About */
 
 .aboutWrapper {
-    width     : 100%;
-    height    : auto;
-    padding-top: 6rem;
-    display   : inline-block;
-    text-align: center;
+    width         : 100%;
+    height        : auto;
+    padding-top   : 8rem;
+    display       : flex;
+    flex-direction: column;
+    text-align    : center;
+    opacity       : 0;
+    transition    : opacity 0.5s;
 }
 
 .aboutWrapper a {
@@ -165,22 +181,35 @@ main {
 
 .aboutWrapper .aboutMeText {
     width  : 100%;
-    padding: 4rem 25rem 4rem 25rem;
+    padding: 4rem 19rem 4rem 19rem;
 }
 
+/* About */
+
+
+/* Work */
 .workWrapper {
-    width     : 100%;
-    height    : auto;
-    text-align: center;
-    display   : block;
-    padding-top: 8rem;
+    width         : 100%;
+    height        : auto;
+    text-align    : center;
+    display       : flex;
+    flex-direction: column;
+    padding-top   : 12rem;
+    opacity       : 0;
+    transition    : opacity 0.5s;
 }
 
 .carousel-slide {
-    width  : 50%;
-    height : auto;
-    padding: 3rem 0rem 3rem 0rem;
-    margin : auto;
+    width      : 50%;
+    height     : auto;
+    padding    : 3rem 0rem 3rem 0rem;
+    margin     : auto;
+    align-items: center;
+}
+
+.carousel-slide:hover img {
+    opacity: 0.3;   
+    transition: opacity 0.5s;
 }
 
 .carousel-slide .carousel-item img {
@@ -188,29 +217,112 @@ main {
     max-height: 100%;
 }
 
-.contactWrapper {
-    display: block;
-    padding-top: 20rem;
-    height : auto;
-    width: 100%;
+
+.carousel-item .carousel-caption {
     text-align: center;
+    color     : white;
+}
+
+a.button1 {
+    display        : inline-block;
+    padding        : 0.35em 1.2em;
+    border         : 0.2em solid black;
+    margin         : 0 0.3em 0.3em 0;
+    border-radius  : 0.12em;
+    box-sizing     : border-box;
+    text-decoration: none;
+    font-family    : 'Roboto', sans-serif;
+    font-weight    : 300;
+    color          : black;
+    text-align     : center;
+    transition     : all 0.2s;
+}
+
+a.button1:hover {
+    color           : white;
+    background-color: black;
+    /* border       : black; */
+}
+
+@media all and (max-width:30em) {
+    a.button1 {
+        display: block;
+        margin : 0.4em auto;
+    }
+}
+
+.bouncy {
+    animation: bouncy 5s infinite linear;
+    position : relative;
+}
+
+@keyframes bouncy {
+    0% {
+        top: 0em
+    }
+
+    40% {
+        top: 0em
+    }
+
+    43% {
+        top: -0.9em
+    }
+
+    46% {
+        top: 0em
+    }
+
+    48% {
+        top: -0.4em
+    }
+
+    50% {
+        top: 0em
+    }
+
+    100% {
+        top: 0em;
+    }
+}
+
+/* Work */
+
+/* Contact */
+.contactWrapper {
+    display       : flex;
+    flex-direction: column;
+    padding-top   : 18rem;
+    height        : auto;
+    width         : 100%;
+    text-align    : center;
+    opacity       : 0;
+    transition    : opacity 0.5s;
 }
 
 .contactLinks {
-    display:flex;
+    display        : flex;
     justify-content: space-evenly;
-    padding: 15rem 0 5rem 0;
+    padding        : 15rem 0 5rem 0;
 }
 
 .contactLinks a {
     text-decoration: none;
-    opacity: 0.5;
-    transition: opacity 1s;
+    opacity        : 0.5;
+    transition     : opacity 1s;
+    font-size      : small;
 }
 
 .contactLinks a:hover {
-    opacity: 1;
-    transform: translateY(0.3rem);
+    opacity   : 1;
+    transform : translateY(-0.4rem);
     transition: transform 0.5s;
-    color:antiquewhite;
+    color     : antiquewhite;
 }
+
+.contactLinks a img {
+    width : 2rem;
+    height: auto;
+}
+
+/* Contact */

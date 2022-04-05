@@ -1,6 +1,11 @@
-let aTagsInNav = document.querySelectorAll('nav a');
-let liTagsinNav = document.querySelectorAll('nav li');
-let navBar = document.querySelector('.navBar');
+let aTagsInNav = document.querySelectorAll('nav a'),
+    liTagsinNav = document.querySelectorAll('nav li'),
+    navBar = document.querySelector('.navBar'),
+    aboutWrapper = document.querySelector('.aboutWrapper'),
+    workWrapper = document.querySelector('.workWrapper'),
+    contactWrapper = document.querySelector('.contactWrapper'),
+    sections = document.querySelectorAll('.section');
+
 document.querySelector('nav').addEventListener('click', function (event) {
     setTimeout(function () {
         let route = location.href.substring(27);
@@ -8,7 +13,6 @@ document.querySelector('nav').addEventListener('click', function (event) {
     }, 40);
 });
 
-let sections = document.querySelectorAll('.section')
 window.onscroll = () => {
     let current = "";
 
@@ -16,14 +20,10 @@ window.onscroll = () => {
         const sectionTop = section.offsetTop;
         if (scrollY >= sectionTop) {
             current = section.getAttribute("id");
-            console.log(current);
         }
     });
     addClass(current);
 };
-
-var myCarousel = document.querySelector('#work-carousel');
-var carousel = new bootstrap.Carousel(myCarousel);
 
 function addClass(route) {
     if (route == 'about' || route == 'work') {
@@ -33,14 +33,24 @@ function addClass(route) {
     }
     for (let liTag of liTagsinNav) {
         liTag.classList.remove('active');
-    }
-    for (let aTag of aTagsInNav) {
-        aTag.classList.remove('active');
-        let href = aTag.getAttribute('href');
-
+        let href = liTag.children[0].getAttribute('href');
         if (href === "#" + route) {
-            aTag.classList.add('active');
-            aTag.parentElement.closest('li').classList.add('active');
+            liTag.classList.add('active');
+            if (aboutWrapper.id == route) {
+                aboutWrapper.classList.add('active');
+            } else {
+                aboutWrapper.classList.remove('active');
+            }
+            if (workWrapper.id == route) {
+                workWrapper.classList.add('active');
+            } else {
+                workWrapper.classList.remove('active');
+            }
+            if (contactWrapper.id == route) {
+                contactWrapper.classList.add('active');
+            } else {
+                contactWrapper.classList.remove('active');
+            }
         }
     }
 }
