@@ -6,7 +6,7 @@ let aTagsInNav = document.querySelectorAll('nav a'),
     contactWrapper = document.querySelector('.contactWrapper'),
     sections = document.querySelectorAll('.section');
 
-document.querySelector('nav').addEventListener('click', function (event) {
+document.querySelector('nav').addEventListener('click', function () {
     setTimeout(function () {
         let route = location.href.substring(27);
         addClass(route);
@@ -15,10 +15,9 @@ document.querySelector('nav').addEventListener('click', function (event) {
 
 window.onscroll = () => {
     let current = "";
-
     sections.forEach((section) => {
         const sectionTop = section.offsetTop;
-        if (scrollY >= sectionTop) {
+        if (scrollY >= (sectionTop - 100)) {
             current = section.getAttribute("id");
         }
     });

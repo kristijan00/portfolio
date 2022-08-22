@@ -1,26 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 
-@media (max-width: 800px) {
-    body {
-        width: 100%;
+@media (max-width: 850px) {
+    .aboutMeText p {
+        width      : 100%;
+        line-height: 1.5rem;
     }
-
-    nav {
-        justify-content: space-evenly;
-    }
-
-    .aboutWrapper .aboutMeText {
-        padding: 2rem 1rem 2rem 1rem;
-        width: 100%;
-    }
-
 }
 
 @media (max-width: 1200px) {
-    .aboutWrapper .aboutMeText {
-        padding: 3rem 2rem 3rem 2rem;
+    nav {
+        justify-content: space-evenly;
+        display        : none;
     }
-    
+
+    .aboutWrapper .aboutMeText {
+        padding: 1rem 6rem !important;
+    }
+
+    .aboutWrapper,
+    .workWrapper,
+    .contactWrapper {
+        width        : 100%;
+        opacity      : 1 !important;
+        margin-bottom: 2rem;
+    }
 }
 
 :root {
@@ -43,7 +46,6 @@ body {
     margin    : 0;
     padding   : 0;
     background: var(--color-body) fixed;
-
 }
 
 main {
@@ -145,12 +147,13 @@ h2 {
 }
 
 main {
-    height: 100rem;
+    height: auto;
+    width : 100%;
 }
 
 /* Home */
 .homeWrapper {
-    margin-top    : 8rem;
+    padding-top   : 5rem;
     display       : flex;
     flex-direction: column;
     width         : 100%;
@@ -163,8 +166,29 @@ main {
     height       : 25%;
 }
 
+h1::before {
+    transform       : scaleX(0);
+    transform-origin: bottom right;
+}
+
+h1:hover::before {
+    transform       : scaleX(1);
+    transform-origin: bottom left;
+}
+
+h1::before {
+    content      : " ";
+    display      : block;
+    position     : absolute;
+    inset        : 30rem 35rem 7rem;
+    border-radius: 1rem;
+    background   : rgb(4, 4, 4);
+    z-index      : -1;
+    transition   : transform .3s ease;
+}
+
 .imgWrapper {
-    margin-top     : 3rem;
+    padding-top    : 3rem;
     display        : flex;
     justify-content: center;
 }
@@ -172,16 +196,17 @@ main {
 .titleWrapper {
     text-align : center;
     display    : inline-block;
-    width      : 100%;
+    width      : 30%;
+    margin     : 0 auto;
     padding-top: 4rem;
 }
 
 .titleWrapper h2 {
     color     : rgb(132, 132, 164);
     font-size : large;
-    font-style: oblique
-}
+    font-style: oblique;
 
+}
 /* Home */
 
 /* About */
@@ -189,7 +214,7 @@ main {
 .aboutWrapper {
     width         : 100%;
     height        : auto;
-    padding-top   : 8rem;
+    padding-top   : 6rem;
     display       : flex;
     flex-direction: column;
     text-align    : center;
@@ -217,7 +242,7 @@ main {
     text-align    : center;
     display       : flex;
     flex-direction: column;
-    padding-top   : 12rem;
+    padding-top   : 7rem;
     opacity       : 0;
     transition    : opacity 0.5s;
 }
@@ -231,7 +256,7 @@ main {
 }
 
 .carousel-slide:hover img {
-    opacity: 0.3;   
+    opacity   : 0.3;
     transition: opacity 0.5s;
 }
 
@@ -264,10 +289,9 @@ a.button1 {
 a.button1:hover {
     color           : white;
     background-color: black;
-    /* border       : black; */
 }
 
-@media all and (max-width:30em) { 
+@media all and (max-width:30em) {
     a.button1 {
         display: block;
         margin : 0.4em auto;
@@ -315,7 +339,7 @@ a.button1:hover {
 .contactWrapper {
     display       : flex;
     flex-direction: column;
-    padding-top   : 18rem;
+    padding-top   : 13rem;
     height        : auto;
     width         : 100%;
     text-align    : center;
