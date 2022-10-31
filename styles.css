@@ -4,37 +4,43 @@
     p {
         width      : 100%;
         line-height: 1.5rem;
-        font-size: 1.6rem;
+        font-size  : 1.8rem;
         font-weight: 90;
     }
-    
+
     h1 {
-        font-size: 3rem !important;
+        font-size: 3.2rem !important;
     }
-    
+
     h2 {
-        font-size: 1.4rem !important;
+        font-size: 1.55rem !important;
     }
-    
+
     .titleWrapper {
         width: 50% !important;
     }
 
     .homeWrapper img {
         border-radius: 150px;
-        width        : 35% !important;
-        height       : 35% !important;
+        width        : 40% !important;
+        height       : 40% !important;
     }
 
     .contactLinks a img {
-        width : 3.2rem !important;
+        width: 3.5rem !important;
     }
 
     .carousel-slide {
-        width      : 70% !important;
-        padding    : 1rem 0rem 1rem 0rem !important;
+        width  : 85% !important;
+        padding: 1rem 0rem 1rem 0rem !important;
     }
-    
+
+    a.button1 {
+        display: block;
+        margin : 0.4em auto;
+        padding: 0.7rem 1.8rem !important;
+    }
+
 }
 
 @media all and (max-width:30em) {
@@ -176,12 +182,12 @@ a {
 }
 
 h1 {
-    color      : antiquewhite;
+    color: antiquewhite;
 }
 
 h1 {
     font-size: xx-large;
-    color:rgb(132, 132, 164);
+    color    : rgb(133, 133, 140)
 }
 
 h2 {
@@ -249,6 +255,7 @@ main {
     font-style: oblique;
 
 }
+
 /* Home */
 
 /* About */
@@ -326,6 +333,16 @@ a.button1 {
     color          : black;
     text-align     : center;
     transition     : all 0.2s;
+}
+
+a.white {
+    border: 0.2em solid white;
+    color : white;
+}
+
+a.white:hover {
+    background-color: white !important;
+    color: black !important;
 }
 
 a.button1:hover {
