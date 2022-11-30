@@ -90,7 +90,6 @@ body {
     padding   : 0;
     background: var(--color-body);
     background-size: cover;
-    background-attachment: fixed;
 }
 
 main {
