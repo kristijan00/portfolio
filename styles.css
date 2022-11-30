@@ -88,7 +88,9 @@ html {
 body {
     margin    : 0;
     padding   : 0;
-    background: var(--color-body) fixed;
+    background: var(--color-body);
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 main {
